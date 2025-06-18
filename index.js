@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const { Headers } = await import('node-fetch');
 const cookies = process.env.COOKIE.split('\n').map(s => s.trim())
 const games = process.env.GAMES.split('\n').map(s => s.trim())
 const discordWebhook = process.env.DISCORD_WEBHOOK
@@ -57,7 +59,7 @@ async function run(cookie, games) {
 
     headers.set('origin', 'https://act.hoyolab.com')
     headers.set('referrer', 'https://act.hoyolab.com')
-    headers.set('content-type', 'application.json;charset=UTF-8')
+    headers.set('content-type', 'application/json;charset=UTF-8')
     headers.set('cookie', cookie)
 
     headers.set('sec-ch-ua', '"Not/A)Brand";v="8", "Chromium";v="126", "Brave";v="126"')
