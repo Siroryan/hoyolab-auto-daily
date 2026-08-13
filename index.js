@@ -13,7 +13,7 @@ const telegramChat = process.env.TELEGRAM_CHAT_ID
 // messages shown in-game and in the HoYoLAB check-in history.
 // `||` (not `??`) is intentional: an unset repository variable is injected as an
 // empty string by Actions, and an empty `lang` would be sent to the API.
-const language = process.env.HOYOLAB_LANG?.trim() || 'en-us'
+const language = process.env.HOYOLAB_LANG?.trim() || 'ja-jp'
 const msgDelimiter = ':'
 const icon = { info: '✅', error: '❌' }
 const messages = []
@@ -69,7 +69,7 @@ async function run(cookie, games) {
 
     headers.set('accept', 'application/json, text/plain, */*')
     headers.set('accept-encoding', 'gzip, deflate, br, zstd')
-    headers.set('accept-language', 'en-US,en;q=0.6')
+    headers.set('accept-language', 'ja-JP,jp;q=0.9')
     headers.set('connection', 'keep-alive')
 
     headers.set('origin', 'https://act.hoyolab.com')
